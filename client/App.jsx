@@ -12,6 +12,8 @@ import { Login } from "./src/Login";
 import DropdownMenu from "./DropdownMenu";
 import { Member } from "./src/Member";
 import { Footer } from "./src/Footer";
+import { Profile } from "./src/AccountTabs/Profile";
+import { PaymentMethods } from "./src/AccountTabs/PaymentMethods";
 
 
 function App() {
@@ -23,7 +25,7 @@ function App() {
   const dispatch = useDispatch();
 
   const options = [
-    { value: 'Account', label: 'Account' },
+    { value: 'Account', label: 'Account Details' },
     { value: 'Profile', label: 'Profile' },
     { value: 'Orders', label: 'Orders' },
     { value: 'Favorites', label: 'Favoires'},
@@ -131,7 +133,8 @@ function App() {
           <Route path="/" element={<Layout><Homepage /></Layout>} />
           <Route path="/Register" element={<Register />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/member/:value" element={<Layout><Member></Member></Layout>} />
+          <Route path="/member/Account" element={<Layout><Member><Profile/></Member></Layout>} />
+          <Route path="/member/Payment" element={<Layout><Member><PaymentMethods/></Member></Layout>} />
         </Routes>
         <Footer/>
         

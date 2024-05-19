@@ -1,4 +1,5 @@
 // Import necessary modules
+require('dotenv').config(); // Add this line to load environment variables
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -17,12 +18,15 @@ const usersRouter = require('./routes/Users');
 const emailRouter = require('./routes/VerificationCode');
 const verificationCodesRouter = require('./routes/ConfirmVerification')
 const verifyTokenRouter = require('./routes/VerifyToken')
+const verifyPaymentRouter = require('./routes/VerifyPayments')
 
 // Mount routers
 app.use("/auth", usersRouter);
 app.use("/", emailRouter);
+app.use("/", verifyPaymentRouter)
 app.use("/", verifyTokenRouter)
 app.use("/api", verificationCodesRouter);
+
 
 
 db.sequelize.sync().then(() => {
