@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { Homepage } from './src/Homepage'
 
 export const body = {
     height: '100vh',

@@ -19,14 +19,20 @@ const emailRouter = require('./routes/VerificationCode');
 const verificationCodesRouter = require('./routes/ConfirmVerification')
 const verifyTokenRouter = require('./routes/VerifyToken')
 const verifyPaymentRouter = require('./routes/VerifyPayments')
+const deliveryAddressRouter = require('./routes/DeliveryRoute')
+const privacyCookiesRouter = require('./routes/PrivacyRoute')
+const storesMenuRouter = require('./routes/MenuRoute')
 
-// Mount routers
+
 app.use("/auth", usersRouter);
 app.use("/", emailRouter);
 app.use("/", verifyPaymentRouter)
 app.use("/", verifyTokenRouter)
+app.use("/", storesMenuRouter)
 app.use("/api", verificationCodesRouter);
 
+app.use("/address", deliveryAddressRouter)
+app.use("/cookies", privacyCookiesRouter)
 
 
 db.sequelize.sync().then(() => {

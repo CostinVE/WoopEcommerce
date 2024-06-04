@@ -66,14 +66,26 @@ export const Register = () => {
     axios.post("http://localhost:3001/auth", values)
       .then(response => {
         console.log(response.data);
+  
+        // Combine form values with additional cookie values and email from state
+        const requestBody = {
+          email: emailValue,
+          strict: true,
+          performance: true,
+          experiences: true,
+          advertising: true
+        };
+  
+        // Send the second request to update privacy settings
+        return axios.post("http://localhost:3001/cookies/privacy", requestBody);
+      })
+      .then(response => {
+        console.log('Privacy settings updated:', response.data);
       })
       .catch(error => {
         console.error('Error:', error);
       })
-      .finally(() => {
-        // Set submitting to false regardless of outcome
-      });
-  };
+    }
 
   
 

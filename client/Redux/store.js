@@ -6,7 +6,7 @@ export const reduxValues = {
     id: 1,
     first_name: "",
     last_name: "",
-    email: "",
+    email: "costinve@gmail.com",
     gender: "",
     birthday: ""
 }

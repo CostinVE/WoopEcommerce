@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser'); // Import cookie-parser
 const { Users } = require("../models");
 const { sign } = require("jsonwebtoken");
 
-const axios = require('axios');
+
 
 
 const db = require("../models");

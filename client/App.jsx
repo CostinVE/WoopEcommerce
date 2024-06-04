@@ -14,6 +14,9 @@ import { Member } from "./src/Member";
 import { Footer } from "./src/Footer";
 import { Profile } from "./src/AccountTabs/Profile";
 import { PaymentMethods } from "./src/AccountTabs/PaymentMethods";
+import { ShopPreferences } from "./src/AccountTabs/ShopPreferences";
+import { Delivery } from "./src/AccountTabs/Delivery";
+import { Privacy } from "./src/AccountTabs/Privacy";
 
 
 function App() {
@@ -129,12 +132,16 @@ function App() {
           </div>
         </div>
         )}
+        <div><Homepage/></div>
         <Routes>
-          <Route path="/" element={<Layout><Homepage /></Layout>} />
+          <Route path="/" element={<Layout></Layout>} />
           <Route path="/Register" element={<Register />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/member/Account" element={<Layout><Member><Profile/></Member></Layout>} />
           <Route path="/member/Payment" element={<Layout><Member><PaymentMethods/></Member></Layout>} />
+          <Route path="/member/Shop" element={<Layout><Member><ShopPreferences/></Member></Layout>} />
+          <Route path="/member/Delivery" element={<Layout><Member><Delivery/></Member></Layout>} />
+          <Route path="/member/Privacy" element={<Layout><Member><Privacy/></Member></Layout>} />
         </Routes>
         <Footer/>
         
